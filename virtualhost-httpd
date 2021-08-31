@@ -1,0 +1,44 @@
+#Crie o diretório do projeto
+sudo mkdir -p /var/www/sample.com/html
+
+#Crie o diretório para os logs
+sudo mkdir -p /var/www/sample.com/log
+
+#Dar permissão ao usuário pache no projeto
+chown -R $ apache. /var/www/sample.com/html
+
+sudo chmod -R 755 / var / www
+
+#criar página de teste
+Nano /var/www/sample.com/html/index.html
+
+Conteúdo do arquivo:
+<html>
+ <head>
+   <title> Bem-vindo ao sample.com! </title>
+ </head>
+ <body>
+   <h1> Sucesso! O host virtual sample.com está funcionando! </h1>
+ </body>
+</html>
+
+#Crie o virtualhost em /etc/httpd/conf.d/sample.conf
+<VirtualHost *: 80>
+    Nome do servidor www.sample.com
+    ServerAlias sample.com
+    DocumentRoot /var/www/sample.com/html
+    ErrorLog /var/www/sample.com/log/error.log
+    CustomLog /var/www/sample.com/log/requests.log combinado
+</VirtualHost>
+
+#Acresente as linhas abaixo para a chamada www2.
+<VirtualHost *: 80>
+    Nome do servidor www2.sample.com
+    ServerAlias sample.com
+    DocumentRoot /var/www/sample.com/html
+    ErrorLog /var/www/sample.com/log/error.log
+    CustomLog /var/www/sample.com/log/requests.log combinado
+</VirtualHost>
+
+Fonte: https://operavps.com/setup-virtual-host-on-centos-7/
+
