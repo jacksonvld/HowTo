@@ -40,5 +40,7 @@ Conteúdo do arquivo:
     CustomLog /var/www/sample.com/log/requests.log combinado
 </VirtualHost>
 
-Fonte: https://operavps.com/setup-virtual-host-on-centos-7/
+Fonte:
+https://operavps.com/setup-virtual-host-on-centos-7/
+https://www.cloudsigma.com/installing-the-apache-web-server-on-centos-7/
 
