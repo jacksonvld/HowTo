@@ -32,6 +32,9 @@ iptables -A OUTPUT -o eth0 -p tcp --sport 443 -m state --state ESTABLISHED -j AC
 iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A OUTPUT -o eth0 -p tcp -m multiport --sports 22,80,443 -m state --state ESTABLISHED -j ACCEPT
 
+iptables -A INPUT -s 10.0.0.0/8 -p TCP -m multiport --sport 80,443 -j ACCEPT -i ens33
+iptables -A OUTPUT -d 0.0.0.0/0 -p TCP -m multiport --dport 80,443 -j ACCEPT -o ens33
+
 # 8. Allow outgoing SSH
 iptables -A OUTPUT -o eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
