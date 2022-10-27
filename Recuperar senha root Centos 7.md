@@ -10,7 +10,7 @@
 5. Para acessar o S.O. use o comando abaixo:  
 :# chroot /sysroot
 6. Resetar a senha:  
-:/# passwd
+:/# ```passwd```
 7. Atualizar a informação no selinux:  
 :/# touch ./autorelabel
 8. Sair do chroot:  
