@@ -114,6 +114,9 @@ iptables -A INPUT -p tcp --dport 80 -m limit --limit 25/minute --limit-burst 100
 #iptables -A INPUT -i eth0 -p tcp --dport 422 -m state --state NEW,ESTABLISHED -j ACCEPT
 #iptables -A OUTPUT -o eth0 -p tcp --sport 422 -m state --state ESTABLISHED -j ACCEPT
 
+# 24.1 Forwarding Ip Nat
+#iptables -t nat --insert POSTROUTING -s 192.168.10.50 -o eth0 -j MASQUERADE
+
 # 25. Log dropped packets
 iptables -N LOGGING
 iptables -A INPUT -j LOGGING
